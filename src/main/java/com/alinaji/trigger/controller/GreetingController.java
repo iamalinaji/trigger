@@ -1,4 +1,4 @@
-package com.alinaji.trigger.Controller;
+package com.alinaji.trigger.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
