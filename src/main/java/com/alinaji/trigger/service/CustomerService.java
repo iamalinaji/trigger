@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -22,7 +23,11 @@ public class CustomerService {
     }
 
     public Optional<Customer> getCustomerById(Long id) {
-        return customerRepository.findById(id);
+        try {
+            return customerRepository.findById(id);
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException("Customer with ID " + id + " not found.");
+        }
     }
 
     public Customer saveCustomer(Customer customer) {
@@ -30,6 +35,10 @@ public class CustomerService {
     }
 
     public void deleteCustomer(Long id) {
-        customerRepository.deleteById(id);
+        try {
+            customerRepository.deleteById(id);
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException("Customer with ID " + id + " not found.");
+        }
     }
 }
