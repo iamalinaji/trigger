@@ -41,4 +41,24 @@ public class CustomerService {
             throw new IllegalArgumentException("Customer with ID " + id + " not found.");
         }
     }
+    public Customer increaseCredit(Long id, double amount) {
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Customer with ID " + id + " not found."));
+
+        customer.setCredit(customer.getCredit() + amount);
+        return customerRepository.save(customer);
+    }
+
+    public Customer decreaseCredit(Long id, double amount) {
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Customer with ID " + id + " not found."));
+
+        double newCredit = customer.getCredit() - amount;
+        if (newCredit < 0) {
+            throw new IllegalArgumentException("Insufficient credit for customer with ID " + id);
+        }
+
+        customer.setCredit(newCredit);
+        return customerRepository.save(customer);
+    }
 }

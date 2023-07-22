@@ -52,4 +52,23 @@ public class CustomerController {
             return ResponseEntity.notFound().build();
         }
     }
+    @PutMapping("/{id}/increase-credit/{amount}")
+    public ResponseEntity<Customer> increaseCredit(@PathVariable Long id, @PathVariable double amount) {
+        try {
+            Customer customer = customerService.increaseCredit(id, amount);
+            return ResponseEntity.ok(customer);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PutMapping("/{id}/decrease-credit/{amount}")
+    public ResponseEntity<Customer> decreaseCredit(@PathVariable Long id, @PathVariable double amount) {
+        try {
+            Customer customer = customerService.decreaseCredit(id, amount);
+            return ResponseEntity.ok(customer);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
