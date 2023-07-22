@@ -1,0 +1,30 @@
+# Spring Boot target directory
+target/
+
+# IDE specific files (you may adjust this based on your IDE)
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Compiled class file
+*.class
+
+# Logs
+logs/
+
+# Maven build directory (if using Maven)
+# This can be safely removed if you're using Gradle instead
+/bin/
+/build/
+/.gradle/
+
+# Gradle build directory (if using Gradle)
+# This can be safely removed if you're using Maven instead
+/build/
+/.gradle/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
