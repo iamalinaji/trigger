@@ -1,5 +1,6 @@
 package com.alinaji.trigger.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import jakarta.persistence.*;
 
@@ -15,6 +16,6 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonBackReference // Use this annotation on the "many" side of the relationship
     private Customer customer;
-    // Add other fields, constructors, getters, and setters as needed
 }

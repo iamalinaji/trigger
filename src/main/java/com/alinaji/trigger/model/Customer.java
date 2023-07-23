@@ -20,6 +20,7 @@ public class Customer {
     private double credit; // New credit field
 
 
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Product> boughtProducts = new ArrayList<>();
     // Add other fields, constructors, getters, and setters as needed

@@ -42,4 +42,13 @@ public class ProductController {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
+    @PostMapping("/{productId}/buy")
+    public ResponseEntity<String> buyProduct(@PathVariable Long productId, @RequestParam Long customerId) {
+        try {
+            productService.buyProduct(customerId, productId);
+            return ResponseEntity.ok("Product successfully purchased.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
