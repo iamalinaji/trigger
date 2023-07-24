@@ -47,11 +47,6 @@
 			<version>1.18.20</version> <!-- Use the latest version -->
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.liquibase</groupId>
-			<artifactId>liquibase-maven-plugin</artifactId>
-			<version>4.23.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -60,16 +55,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.liquibase</groupId>
-				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>4.23.0</version>
-				<configuration>
-					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
-				</configuration>
-			</plugin>
 		</plugins>
-
 	</build>
 
 </project>
