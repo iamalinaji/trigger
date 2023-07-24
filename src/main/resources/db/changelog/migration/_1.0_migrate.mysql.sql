@@ -1,0 +1,11 @@
+-- liquibase formatted sql
+
+-- changeset ali:1690177885923-1
+CREATE TABLE Customer (id BIGINT AUTO_INCREMENT NOT NULL, credit FLOAT(53) NOT NULL, email VARCHAR(255) NULL, firstName VARCHAR(255) NULL, lastName VARCHAR(255) NULL, CONSTRAINT CustomerPK PRIMARY KEY (id));
+
+-- changeset ali:1690177885923-2
+CREATE TABLE Product (id BIGINT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NULL, price FLOAT(53) NOT NULL, customer_id BIGINT NULL, CONSTRAINT ProductPK PRIMARY KEY (id));
+
+-- changeset ali:1690177885923-3
+ALTER TABLE Product ADD CONSTRAINT FK13o8av9hex6kn31rp3gbypcg8 FOREIGN KEY (customer_id) REFERENCES Customer (id);
+
