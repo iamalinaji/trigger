@@ -1,5 +1,7 @@
 # trigger
 This project is based on Spring Boot and incorporates Spring JPA along with Liquibase for database management.
+# trigger
+This project is based on Spring Boot and incorporates Spring JPA along with Liquibase for database management.
 
 ## How to Use Liquibase with spring boot project:
 1. Set the appropriate versions in the properties section of your pom file.
